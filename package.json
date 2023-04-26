@@ -1,0 +1,18 @@
+{
+  "name": "playwright-demo",
+  "version": "1.0.0",
+  "description": "Automated software testing with Playwright",
+  "main": "index.js",
+  "scripts": {
+    "tests:chrome": "playwright test --config=playwright.config.ts --project=Chromium",
+    "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox",
+    "tests:webkit": "playwright test --config=playwright.config.ts --project=Webkit",
+    "tests:e2e": "playwright test --config=e2e.config.ts --project=Chromium"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.32.3",
+    "prettier": "^2.8.7"
+  }
+}
