@@ -40,7 +40,7 @@ test.describe("Inputs & assertions suite", () => {
     })
 })
 
-test.describe.parallel.only("Tests with screenshots and hooks", () => {
+test.describe.parallel("Tests with screenshots and hooks", () => {
     test.beforeEach(async ({page}) =>{
         await page.goto('https://www.example.com')
     })
