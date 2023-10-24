@@ -18,9 +18,6 @@ export class LoginPage {
     }
 
     //define login page methods
-    async visit() {
-        await this.page.goto('http://zero.webappsecurity.com/')
-    }
 
     async login(username: string, password: string) {
         await this.usernameInput.type(username)
