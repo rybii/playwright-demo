@@ -1,13 +1,19 @@
 import { test, expect } from '@playwright/test'
+import { LoginPage } from '../../page-objects/LoginPage'
+import { HomePage } from '../../page-objects/HomePage'
 
 test.describe('Currency Exchange', () => {
+    let homePage: HomePage
+    let loginPage: LoginPage
+    
     test.beforeEach(async ({page}) => {
-        await page.goto('http://zero.webappsecurity.com/index.html')
-        await page.click("#signin_button")
-        await page.type('#user_login', 'username')
-        await page.type('#user_password', 'password')
-        await page.click("text=Sign in")
-        await page.goto("http://zero.webappsecurity.com/bank/pay-bills.html")
+        homePage = new HomePage(page)
+        loginPage = new LoginPage(page)
+
+        await homePage.visit()
+        await homePage.clickOnSignIn()
+        await loginPage.login('username', 'password')
+        await page.goto("http://zero.webappsecurity.com/bank/pay-bills.html")        
     })
 
     test('Make a currency exchange', async ({page}) =>{
