@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 import { LoginPage } from '../../page-objects/LoginPage'
 import { HomePage } from '../../page-objects/HomePage'
 
-test.describe.parallel("Login/Logout Flows", () =>{
+test.describe.parallel.only("Login/Logout Flows", () =>{
     let loginPage: LoginPage
     let homePage: HomePage
 
@@ -16,6 +16,7 @@ test.describe.parallel("Login/Logout Flows", () =>{
     test("Negative scenario for login", async ({page}) =>{
         await homePage.clickOnSignIn()
         await loginPage.login('un','up')
+        await loginPage.wait(1000) // wait example from AbstractPage
         await loginPage.assertErrorMessage()
     })
 
