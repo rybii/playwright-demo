@@ -32,7 +32,7 @@ test.describe("Tips and Tricks", () => {
         await page.mouse.up()
     })
 
-    test.only("Multiple browser tabs", async ({browser}) => {
+    test("Multiple browser tabs", async ({browser}) => {
         const context = await browser.newContext()
         const page1 = await context.newPage()
         const page2 = await context.newPage()
