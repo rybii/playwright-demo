@@ -92,7 +92,7 @@ test.describe.parallel("API testing", () => {
         expect(responseBody.job).toBe("TL")
     })
 
-    test.only("DELETE Update User", async ({request}) => {
+    test("DELETE Update User", async ({request}) => {
         const response = await request.delete(`${baseUrl}users/2`)
 
         expect(response.status()).toBe(204)
