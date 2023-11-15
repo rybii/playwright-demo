@@ -1,9 +1,14 @@
 import { test, expect } from '@playwright/test'
+import { getRandomNumber, getRandomString } from '../../utils/data-helpers'
 
 test.describe("Tips and Tricks", () => {
-    test("TestInfo Object", async ({page}, testInfo) => {
+    test.only("TestInfo Object", async ({page}, testInfo) => {
         await page.goto("https://www.example.com")
-        console.log(testInfo.title)
+        //console.log(testInfo.title)
+        let newNumber = await getRandomNumber()
+        let newString = await getRandomString()
+        console.log(newNumber)
+        console.log(newString)
     })
 
     test("Test Skip Browser", async ({page, browserName}) => {
@@ -43,7 +48,13 @@ test.describe("Tips and Tricks", () => {
         await page1.waitForTimeout(5000)
     })
 
-    //Emulate iphone 11: npx playwright open --device="iPhone 11" wikipedia.org
-
-    //Save website to PDF: npx playwright pdf {website URL} {name of the otput file .pdf}
 })
+
+//Emulate iphone 11: npx playwright open --device="iPhone 11" wikipedia.org
+
+//Save website to PDF: npx playwright pdf {website URL} {name of the otput file}.pdf
+
+//save screenshot of the web page under iphone emulation: 
+//npx playwright screenshot --device="iPhone 11" --color-scheme=dark --wait-for-timeout=3000 x.com google-iphone-image.png
+
+//timezone geolocation and language change: npx playwright open --timezone="Europe/Rome" --lang="it-IT" --geolocation="40.121, 10.123" google.com
